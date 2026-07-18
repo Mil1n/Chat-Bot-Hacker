@@ -1,0 +1,233 @@
+[
+  {
+    "name": "ip addr",
+    "os": "Linux",
+    "category": "просмотр сетевых интерфейсов",
+    "syntax": "ip addr show",
+    "purpose": "Показывает адреса интерфейсов",
+    "example": "ip addr show",
+    "riskLevel": "низкий",
+    "warning": "Не раскрывайте публично внутренние адреса.",
+    "requiresRoot": false
+  },
+  {
+    "name": "ss",
+    "os": "Linux",
+    "category": "проверка открытых портов собственного компьютера",
+    "syntax": "ss -tulpen",
+    "purpose": "Показывает слушающие сокеты",
+    "example": "ss -tulpen",
+    "riskLevel": "низкий",
+    "warning": "Запускайте только для диагностики своего узла.",
+    "requiresRoot": false
+  },
+  {
+    "name": "ps",
+    "os": "Linux",
+    "category": "просмотр процессов",
+    "syntax": "ps aux",
+    "purpose": "Список процессов",
+    "example": "ps aux | less",
+    "riskLevel": "низкий",
+    "warning": "Может показать аргументы с секретами.",
+    "requiresRoot": false
+  },
+  {
+    "name": "df",
+    "os": "Linux",
+    "category": "анализ использования диска",
+    "syntax": "df -h",
+    "purpose": "Свободное место",
+    "example": "df -h",
+    "riskLevel": "низкий",
+    "warning": "Нет.",
+    "requiresRoot": false
+  },
+  {
+    "name": "journalctl",
+    "os": "Linux",
+    "category": "просмотр системных журналов",
+    "syntax": "journalctl -xe",
+    "purpose": "Системные события",
+    "example": "journalctl -u ssh --since today",
+    "riskLevel": "средний",
+    "warning": "Логи могут содержать персональные данные.",
+    "requiresRoot": true
+  },
+  {
+    "name": "dig",
+    "os": "Linux/macOS",
+    "category": "проверка DNS",
+    "syntax": "dig example.com A",
+    "purpose": "DNS-запрос",
+    "example": "dig example.com MX",
+    "riskLevel": "низкий",
+    "warning": "Проверяйте домены, которыми вправе заниматься.",
+    "requiresRoot": false
+  },
+  {
+    "name": "ping",
+    "os": "Cross-platform",
+    "category": "проверка доступности узла",
+    "syntax": "ping HOST",
+    "purpose": "ICMP проверка",
+    "example": "ping 8.8.8.8",
+    "riskLevel": "низкий",
+    "warning": "Не используйте для нагрузки на чужие узлы.",
+    "requiresRoot": false
+  },
+  {
+    "name": "curl -I",
+    "os": "Cross-platform",
+    "category": "получение HTTP-заголовков",
+    "syntax": "curl -I https://example.com",
+    "purpose": "Показывает заголовки",
+    "example": "curl -I https://example.com",
+    "riskLevel": "низкий",
+    "warning": "Не отправляет тело запроса.",
+    "requiresRoot": false
+  },
+  {
+    "name": "ufw status",
+    "os": "Linux",
+    "category": "проверка состояния firewall",
+    "syntax": "ufw status verbose",
+    "purpose": "Статус UFW",
+    "example": "sudo ufw status verbose",
+    "riskLevel": "низкий",
+    "warning": "Для просмотра может понадобиться sudo.",
+    "requiresRoot": true
+  },
+  {
+    "name": "apt list --upgradable",
+    "os": "Debian/Ubuntu",
+    "category": "проверка обновлений безопасности",
+    "syntax": "apt list --upgradable",
+    "purpose": "Список обновлений",
+    "example": "apt list --upgradable",
+    "riskLevel": "низкий",
+    "warning": "Не устанавливает пакеты.",
+    "requiresRoot": false
+  },
+  {
+    "name": "who",
+    "os": "Linux",
+    "category": "аудит входов",
+    "syntax": "who",
+    "purpose": "Активные сессии",
+    "example": "who",
+    "riskLevel": "низкий",
+    "warning": "Нет.",
+    "requiresRoot": false
+  },
+  {
+    "name": "last",
+    "os": "Linux",
+    "category": "аудит входов",
+    "syntax": "last -n 20",
+    "purpose": "История входов",
+    "example": "last -n 20",
+    "riskLevel": "низкий",
+    "warning": "Содержит IP пользователей.",
+    "requiresRoot": false
+  },
+  {
+    "name": "Get-NetIPConfiguration",
+    "os": "Windows PowerShell",
+    "category": "просмотр сетевых интерфейсов",
+    "syntax": "Get-NetIPConfiguration",
+    "purpose": "IP-конфигурация",
+    "example": "Get-NetIPConfiguration",
+    "riskLevel": "низкий",
+    "warning": "Нет.",
+    "requiresRoot": false
+  },
+  {
+    "name": "Get-Process",
+    "os": "Windows PowerShell",
+    "category": "просмотр процессов",
+    "syntax": "Get-Process",
+    "purpose": "Процессы Windows",
+    "example": "Get-Process | Sort CPU -Descending",
+    "riskLevel": "низкий",
+    "warning": "Нет.",
+    "requiresRoot": false
+  },
+  {
+    "name": "Get-EventLog",
+    "os": "Windows PowerShell",
+    "category": "просмотр системных журналов",
+    "syntax": "Get-EventLog -LogName System -Newest 50",
+    "purpose": "Системные события",
+    "example": "Get-EventLog -LogName Security -Newest 20",
+    "riskLevel": "средний",
+    "warning": "Security log может требовать администратора.",
+    "requiresRoot": true
+  },
+  {
+    "name": "netstat",
+    "os": "Windows",
+    "category": "проверка открытых портов собственного компьютера",
+    "syntax": "netstat -ano",
+    "purpose": "Соединения и PID",
+    "example": "netstat -ano",
+    "riskLevel": "низкий",
+    "warning": "Не сканирует сеть.",
+    "requiresRoot": false
+  },
+  {
+    "name": "nslookup",
+    "os": "Cross-platform",
+    "category": "проверка DNS",
+    "syntax": "nslookup example.com",
+    "purpose": "DNS lookup",
+    "example": "nslookup example.com",
+    "riskLevel": "низкий",
+    "warning": "Нет.",
+    "requiresRoot": false
+  },
+  {
+    "name": "docker ps",
+    "os": "Linux/Windows/macOS",
+    "category": "Docker",
+    "syntax": "docker ps",
+    "purpose": "Контейнеры",
+    "example": "docker ps --format \"table {{.Names}}\\t{{.Image}}\"",
+    "riskLevel": "низкий",
+    "warning": "Не публикуйте имена приватных образов.",
+    "requiresRoot": false
+  },
+  {
+    "name": "nginx -t",
+    "os": "Linux",
+    "category": "Nginx",
+    "syntax": "nginx -t",
+    "purpose": "Проверка конфигурации",
+    "example": "sudo nginx -t",
+    "riskLevel": "низкий",
+    "warning": "Может требовать sudo.",
+    "requiresRoot": true
+  },
+  {
+    "name": "free",
+    "os": "Linux",
+    "category": "диагностика памяти",
+    "syntax": "free -h",
+    "purpose": "Использование RAM",
+    "example": "free -h",
+    "riskLevel": "низкий",
+    "warning": "Нет.",
+    "requiresRoot": false
+  },
+  {
+    "name": "systemctl status",
+    "os": "Linux",
+    "category": "диагностика сервисов",
+    "syntax": "systemctl status NAME",
+    "purpose": "Статус сервиса",
+    "example": "systemctl status ssh",
+    "riskLevel": "низкий",
+    "warning": "Нет.",
+    "requiresRoot": false
+  }
+]
