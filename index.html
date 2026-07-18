@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="CyberSec AI — учебный чат-бот по defensive security и ethical hacking." />
+  <title>CyberSec AI — Ethical Hacker Chatbot</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="matrix-bg" aria-hidden="true"></div>
+  <div class="app-shell">
+    <header class="topbar">
+      <section class="brand" aria-label="Информация о продукте">
+        <div class="brand-mark">CSA</div>
+        <div>
+          <h1>CyberSec AI</h1>
+          <p>Учебный помощник по защите, SOC, Linux, CTF и безопасному пентесту</p>
+        </div>
+      </section>
+      <section class="status-panel" aria-label="Статус бота">
+        <span id="botStatus" class="status-dot online"></span>
+        <span id="statusText">Локальная база готова</span>
+      </section>
+    </header>
+
+    <main class="layout">
+      <aside class="sidebar" aria-label="Настройки чата">
+        <div class="panel warning-panel">
+          <strong>⚠️ Только легальное обучение</strong>
+          <p>Бот помогает защищать свои системы, разбирать логи, CTF и лаборатории. Запросы на вредоносные действия будут перенаправлены в безопасный формат.</p>
+        </div>
+
+        <div class="panel">
+          <label for="modeSelect">Режим ответа</label>
+          <select id="modeSelect">
+            <option value="mentor">Наставник</option>
+            <option value="expert">Эксперт</option>
+            <option value="soc">SOC-аналитик</option>
+            <option value="pentester">Пентестер</option>
+            <option value="admin">Системный администратор</option>
+            <option value="ctf">CTF-помощник</option>
+            <option value="paranoid">Параноик</option>
+          </select>
+        </div>
+
+        <div class="panel toggle-row">
+          <span>AI backend</span>
+          <label class="switch">
+            <input id="aiToggle" type="checkbox" />
+            <span></span>
+          </label>
+        </div>
+
+        <div class="panel toggle-row">
+          <span>Сохранять историю</span>
+          <label class="switch">
+            <input id="historyToggle" type="checkbox" checked />
+            <span></span>
+          </label>
+        </div>
+
+        <div class="panel toggle-row">
+          <span>Тема</span>
+          <button id="themeToggle" class="ghost-btn" type="button">🌙 Тёмная</button>
+        </div>
+
+        <div class="panel actions">
+          <button id="exportJsonBtn" type="button">Экспорт JSON</button>
+          <button id="exportTxtBtn" type="button">Экспорт TXT</button>
+          <button id="clearHistoryBtn" class="danger" type="button">Очистить историю</button>
+        </div>
+      </aside>
+
+      <section class="chat-card" aria-label="Чат с CyberSec AI">
+        <div id="quickActions" class="quick-actions" aria-label="Быстрые действия"></div>
+        <div id="chatMessages" class="messages" aria-live="polite"></div>
+        <form id="chatForm" class="composer">
+          <textarea id="messageInput" rows="3" maxlength="5000" placeholder="Опишите задачу, вставьте команду или фрагмент логов..." aria-label="Сообщение"></textarea>
+          <div class="composer-footer">
+            <span id="charCounter">0 / 5000</span>
+            <button id="sendBtn" type="submit">Отправить ↵</button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+  <script src="script.js" defer></script>
+</body>
+</html>
